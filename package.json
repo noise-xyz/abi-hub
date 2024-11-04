@@ -1,0 +1,38 @@
+{
+    "name": "@noise-xyz/abi-hub",
+    "version": "1.0.0",
+    "description": "ABI definitions for Noise protocol smart contracts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "sideEffects": false,
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/noise-xyz/abi-hub.git"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "typescript": "^5.0.0"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
