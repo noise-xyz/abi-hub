@@ -1,6 +1,8 @@
-export const NoiseDevTokenAddress = {
+import type { AddressMap } from "./chains";
+
+export const NoiseDevTokenAddress: AddressMap = {
     84532: "0xE24f480bB01145ccdCF7F55FC9549639E4B55c39",
-};
+} as const;
 
 export const NoiseDevTokenABI = [
     {
