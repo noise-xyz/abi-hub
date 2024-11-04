@@ -4,3 +4,4 @@ export {
     StandaloneOrderBookABI,
     StandaloneOrderBookAddress,
 } from "./StandaloneOrderBook";
+export type { SupportedChain } from "./chains";

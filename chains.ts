@@ -1,5 +1,5 @@
-export type SupportedChains = 84532;
+export type SupportedChain = 84532;
 
 export type AddressMap = {
-    [K in SupportedChains]: string;
+    [K in SupportedChain]: string;
 };
