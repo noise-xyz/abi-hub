@@ -1,6 +1,6 @@
 {
     "name": "@noise-xyz/abi-hub",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "ABI definitions for Noise protocol smart contracts",
     "type": "module",
     "exports": {
