@@ -1,7 +1,7 @@
 import type { AddressMap } from "./chains";
 
 export const FeesAddress: AddressMap = {
-    84532: "0x4198773617D169b04FABDc8D8A15878C78035532",
+    84532: "0x9749a814BacAc76b27f86e654E61CABFd6AF1d8C",
 } as const;
 
 export const FeesABI = [

@@ -1,7 +1,7 @@
 import type { AddressMap } from "./chains";
 
 export const StandaloneOrderBookAddress: AddressMap = {
-    84532: "0x8130471231617A00cDC0E24B225aE7B15c74EE86",
+    84532: "0xBc32042AC375eba237a698E3C217eE6a2EFDe9Da",
 } as const;
 
 export const StandaloneOrderBookABI = [
