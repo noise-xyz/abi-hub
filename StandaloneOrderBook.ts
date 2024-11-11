@@ -1,7 +1,7 @@
 import type { AddressMap } from "./chains";
 
 export const StandaloneOrderBookAddress: AddressMap = {
-    84532: "0xBc32042AC375eba237a698E3C217eE6a2EFDe9Da",
+    84532: "0x9340eb9c45082E4aD9D89828B6d0C88d1056268A",
 } as const;
 
 export const StandaloneOrderBookABI = [
@@ -221,6 +221,19 @@ export const StandaloneOrderBookABI = [
     },
     {
         type: "function",
+        name: "closePosition",
+        inputs: [
+            {
+                name: "_price",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "closeTrade",
         inputs: [
             {
@@ -351,6 +364,163 @@ export const StandaloneOrderBookABI = [
     },
     {
         type: "function",
+        name: "getOpenTradesForPosition",
+        inputs: [
+            {
+                name: "_trader",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [
+            {
+                name: "",
+                type: "tuple[]",
+                internalType: "struct IStandaloneOrderBook.Trade[]",
+                components: [
+                    {
+                        name: "tradeId",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "trader",
+                        type: "address",
+                        internalType: "address",
+                    },
+                    {
+                        name: "collateralAmount",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "leverage",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "positionSize",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "openPrice",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "closePrice",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "openTimestamp",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "closeTimestamp",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "isLong",
+                        type: "bool",
+                        internalType: "bool",
+                    },
+                    {
+                        name: "status",
+                        type: "uint8",
+                        internalType: "enum IStandaloneOrderBook.TradeStatus",
+                    },
+                    {
+                        name: "didGain",
+                        type: "bool",
+                        internalType: "bool",
+                    },
+                    {
+                        name: "pnl",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                ],
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "getPosition",
+        inputs: [
+            {
+                name: "_trader",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [
+            {
+                name: "",
+                type: "tuple",
+                internalType: "struct IStandaloneOrderBook.Position",
+                components: [
+                    {
+                        name: "openTradeIds",
+                        type: "uint256[]",
+                        internalType: "uint256[]",
+                    },
+                    {
+                        name: "runningPositionSizeScalar",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "runningPositionSizeVector",
+                        type: "int256",
+                        internalType: "int256",
+                    },
+                    {
+                        name: "runningCollateral",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "totalFeesSettled",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "averageEntryPrice",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "liquidationPrice",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                    {
+                        name: "settledProfitOrLossValue",
+                        type: "int256",
+                        internalType: "int256",
+                    },
+                    {
+                        name: "settledProfitOrLossPercent",
+                        type: "int256",
+                        internalType: "int256",
+                    },
+                    {
+                        name: "nClosedTrades",
+                        type: "uint256",
+                        internalType: "uint256",
+                    },
+                ],
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
         name: "getTrade",
         inputs: [
             {
@@ -472,6 +642,65 @@ export const StandaloneOrderBookABI = [
                 name: "",
                 type: "address",
                 internalType: "address",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "positions",
+        inputs: [
+            {
+                name: "",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [
+            {
+                name: "runningPositionSizeScalar",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "runningPositionSizeVector",
+                type: "int256",
+                internalType: "int256",
+            },
+            {
+                name: "runningCollateral",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "totalFeesSettled",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "averageEntryPrice",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "liquidationPrice",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "settledProfitOrLossValue",
+                type: "int256",
+                internalType: "int256",
+            },
+            {
+                name: "settledProfitOrLossPercent",
+                type: "int256",
+                internalType: "int256",
+            },
+            {
+                name: "nClosedTrades",
+                type: "uint256",
+                internalType: "uint256",
             },
         ],
         stateMutability: "view",
@@ -679,6 +908,43 @@ export const StandaloneOrderBookABI = [
                 type: "address",
                 indexed: true,
                 internalType: "address",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "PositionUpdated",
+        inputs: [
+            {
+                name: "trader",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+            {
+                name: "runningPositionSizeScalar",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "runningPositionSizeVector",
+                type: "int256",
+                indexed: false,
+                internalType: "int256",
+            },
+            {
+                name: "averageEntryPrice",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "liquidationPrice",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
             },
         ],
         anonymous: false,

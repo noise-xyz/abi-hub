@@ -1,7 +1,7 @@
 import type { AddressMap } from "./chains";
 
 export const FeesAddress: AddressMap = {
-    84532: "0x9749a814BacAc76b27f86e654E61CABFd6AF1d8C",
+    84532: "0x78Cbc9F7A52eFff37086ddc40141e6d05824e599",
 } as const;
 
 export const FeesABI = [
@@ -28,8 +28,19 @@ export const FeesABI = [
     },
     {
         type: "function",
-        name: "baseFundingFeeP",
-        inputs: [],
+        name: "calculateFeeAmount",
+        inputs: [
+            {
+                name: "positionSize",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "feeInBps",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
         outputs: [
             {
                 name: "",
@@ -37,20 +48,7 @@ export const FeesABI = [
                 internalType: "uint256",
             },
         ],
-        stateMutability: "view",
-    },
-    {
-        type: "function",
-        name: "closeFeeP",
-        inputs: [],
-        outputs: [
-            {
-                name: "",
-                type: "uint256",
-                internalType: "uint256",
-            },
-        ],
-        stateMutability: "view",
+        stateMutability: "pure",
     },
     {
         type: "function",
@@ -130,19 +128,6 @@ export const FeesABI = [
     {
         type: "function",
         name: "getOpenFeeP",
-        inputs: [],
-        outputs: [
-            {
-                name: "",
-                type: "uint256",
-                internalType: "uint256",
-            },
-        ],
-        stateMutability: "view",
-    },
-    {
-        type: "function",
-        name: "openFeeP",
         inputs: [],
         outputs: [
             {
@@ -300,7 +285,7 @@ export const FeesABI = [
         name: "FundingFeePayersSwitched",
         inputs: [
             {
-                name: "newFundingFeePayers",
+                name: "newPayingSide",
                 type: "uint8",
                 indexed: false,
                 internalType: "enum IFees.Side",
@@ -326,13 +311,13 @@ export const FeesABI = [
         name: "OpenInterestUpdated",
         inputs: [
             {
-                name: "totalOpenInterestLong",
+                name: "longOpenInterest",
                 type: "uint256",
                 indexed: false,
                 internalType: "uint256",
             },
             {
-                name: "totalOpenInterestShort",
+                name: "shortOpenInterest",
                 type: "uint256",
                 indexed: false,
                 internalType: "uint256",
